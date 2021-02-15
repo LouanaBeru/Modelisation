@@ -7,7 +7,7 @@ from Gradient_Minimum import * #importe toutes les fonctions de ce programme /!\
 
 # PHYSICAL PARAMETERS
 Rapport_temp = 4 #ratio temp entre x=0 et L, les quantites sont sans dimension (voir chap. 3)
-K = 0.1     #Reference Diffusion coefficient
+K = 0.5    #Reference Diffusion coefficient
 L = 1.0     #Domain size
 Time = 1  #Integration timeRapport_temp=4 #ratio temp entre x=0 et L, les quantites sont sans dimension (voir chap. 3)
 
@@ -90,7 +90,7 @@ for i in range(len(x)):
     kx[i] = K /(1+4.141*np.exp(-1.e6*(x[i]-0.5)**8))
 plt.figure()
 plt.plot(x,np.log10(kx), color = 'blue' )
-plt.plot(x, T, color = 'yellow')
+plt.plot(x, T , color = 'yellow')
 plt.show()
 
 #CNTRL divise par deux la propagation de la chaleur -> comment le représenter ?
