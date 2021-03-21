@@ -10,6 +10,7 @@ from Gradient_Minimum import * #importe toutes les fonctions de ce programme
 #u,t = k u,xx 
 #u,t - k u,xx = f  equation de chaleur, mais ici, f =0
 
+###################################################################################################################################
 ##CONDITIONS INITIALES
 ###PHYSICAL PARAMETERS
 Rapport_temp = 4 #ratio temp entre x=0 et L, les quantites sont sans dimension (voir chap. 3)
@@ -26,6 +27,7 @@ dt=dx**2/(2*K) #CFL stability condition
 NT = int(Time/dt)   #Number of time steps necessary to reach Time under stability condition
 CNTRL = 10
 
+###################################################################################################################################
 ##MAIN PROGRAM
 ###Initialisation
 x = np.linspace(0.0,1.0,NX) #La porte fait 10 cm d'épaisseur, en 0, on est à l'intérieur, en 1, on est à l'extérieur ( du côté du feu)
@@ -60,7 +62,7 @@ for n in range(0,NT):#On doit avoir fini avant NT
             res0=res
 
         rest.append(res)
-    
+
 ###Ajout de l'isolant
 #Fonction : KX
 #Parametres : x : list / maillage, CNTRL : float / plus il est grand, plus c'est isole
@@ -98,7 +100,8 @@ def cost():
         CNTRL = i
         cost += [J(i)]
     return cost
-
+    
+###################################################################################################################################
 ##AFFICHAGE
 plt.figure()      
 plt.plot(x, cost(), color = 'orange')
